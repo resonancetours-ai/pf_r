@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Система психо-эмоциональной разблокировки | PF_R | Ирина Ефимчук</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0f;
+  --bg2: #111118;
+  --bg3: #1a1a24;
+  --purple: #8b5cf6;
+  --purple-light: #a78bfa;
+  --purple-dark: #6d28d9;
+  --pink: #ec4899;
+  --text: #e8e8ed;
+  --text-muted: #9ca3af;
+  --text-dim: #6b7280;
+  --border: rgba(139, 92, 246, 0.15);
+  --green: #22c55e;
+  --red: #ef4444;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--purple-dark); border-radius: 3px; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section { padding: 100px 0; position: relative; }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ---- Hero ---- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 120px 24px 80px;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+.hero-orb-1 { width: 400px; height: 400px; background: rgba(139,92,246,0.08); top: 10%; left: -10%; }
+.hero-orb-2 { width: 300px; height: 300px; background: rgba(236,72,153,0.06); bottom: 10%; right: -5%; animation-delay: -4s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.05); }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(139,92,246,0.1);
+  border: 1px solid rgba(139,92,246,0.25);
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--purple-light);
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.hero-badge svg { width: 16px; height: 16px; stroke: var(--purple-light); fill: none; stroke-width: 2; }
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.15;
+  max-width: 800px;
+  margin: 0 auto 28px;
+  background: linear-gradient(135deg, #fff 30%, var(--purple-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+
+/* Trust bar */
+.hero-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.hero-trust-item svg {
+  width: 18px; height: 18px;
+  stroke: var(--purple-light);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.hero-trust-item strong { color: var(--text); font-weight: 600; }
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 18px 40px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 30px rgba(139,92,246,0.3);
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(139,92,246,0.45);
+}
+.btn-primary::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+  border-radius: inherit;
+}
+.btn-primary svg {
+  width: 18px; height: 18px;
+  stroke: #fff; fill: none;
+  stroke-width: 2;
+  transition: transform 0.3s;
+  position: relative; z-index: 1;
+}
+.btn-primary:hover svg { transform: translateX(4px); }
+.btn-primary span { position: relative; z-index: 1; }
+
+.btn-sub-text {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.btn-sub-text svg {
+  width: 14px; height: 14px;
+  stroke: var(--text-dim);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Section titles */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--purple-light);
+  margin-bottom: 16px;
+}
+.section-label svg {
+  width: 16px; height: 16px;
+  stroke: var(--purple-light);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.section-title {
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.section-title .highlight {
+  background: linear-gradient(135deg, var(--purple-light), var(--pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-desc {
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* Mid CTA */
+.mid-cta {
+  margin-top: 56px;
+  text-align: center;
+  padding: 48px 32px;
+  background: linear-gradient(135deg, rgba(139,92,246,0.06), rgba(236,72,153,0.04));
+  border: 1px solid var(--border);
+  border-radius: 24px;
+}
+.mid-cta p { font-size: 18px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.mid-cta strong { color: var(--text); }
+
+/* Problem section */
+.problem-section { background: var(--bg); }
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 48px;
+}
+.problem-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+.problem-card:hover { border-color: rgba(139,92,246,0.35); background: var(--bg3); transform: translateY(-2px); }
+.problem-icon {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  background: rgba(236,72,153,0.1);
+  border: 1px solid rgba(236,72,153,0.2);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
+.problem-icon svg { width: 20px; height: 20px; stroke: var(--pink); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.problem-card p { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+
+.problem-bottom {
+  margin-top: 48px;
+  text-align: center;
+  padding: 32px;
+  background: linear-gradient(135deg, rgba(236,72,153,0.05), rgba(139,92,246,0.05));
+  border: 1px solid rgba(236,72,153,0.15);
+  border-radius: 20px;
+}
+.problem-bottom p { font-size: 17px; color: var(--text-muted); line-height: 1.8; }
+.problem-bottom strong { color: var(--pink); font-weight: 600; }
+
+/* Important */
+.important-section { background: var(--bg2); }
+.important-box { max-width: 700px; margin: 0 auto; text-align: center; }
+.important-quote {
+  font-size: clamp(20px, 3vw, 28px);
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 40px 0;
+  padding: 32px;
+  background: rgba(139,92,246,0.05);
+  border-left: 3px solid var(--purple);
+  border-radius: 0 16px 16px 0;
+  text-align: left;
+}
+.important-answer { font-size: 18px; line-height: 1.8; color: var(--text); }
+.important-answer strong { color: var(--purple-light); }
+
+/* Classic */
+.classic-section { background: var(--bg); }
+.classic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 40px 0;
+}
+.classic-item {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  position: relative;
+}
+.classic-item::after {
+  content: '';
+  position: absolute; top: 14px; right: 14px;
+  width: 18px; height: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ef4444' stroke-width='2' stroke-linecap='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E");
+  background-size: contain;
+  opacity: 0.5;
+}
+.classic-icon {
+  width: 48px; height: 48px;
+  margin: 0 auto 14px;
+  background: rgba(139,92,246,0.08);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
+.classic-icon svg { width: 22px; height: 22px; stroke: var(--text-dim); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.classic-item p { font-size: 15px; color: var(--text-muted); }
+
+.classic-note {
+  text-align: center; padding: 28px;
+  background: rgba(239,68,68,0.05);
+  border: 1px solid rgba(239,68,68,0.15);
+  border-radius: 16px;
+}
+.classic-note p { color: var(--text-muted); font-size: 16px; }
+.classic-note strong { color: #f87171; }
+
+/* Cause */
+.cause-section { background: var(--bg2); }
+.cause-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-top: 48px;
+}
+@media (max-width: 768px) { .cause-content { grid-template-columns: 1fr; } }
+
+.cause-visual {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 320px;
+}
+.cause-circle {
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  border: 2px solid rgba(139,92,246,0.2);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.cause-circle::before {
+  content: '';
+  position: absolute; inset: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,246,0.15), transparent);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+.cause-circle-text { font-size: 14px; font-weight: 600; color: var(--purple-light); text-align: center; z-index: 1; line-height: 1.5; }
+
+.cause-floating {
+  position: absolute;
+  padding: 10px 18px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.cause-f1 { top: 10%; left: 0; }
+.cause-f2 { top: 45%; right: 0; }
+.cause-f3 { bottom: 10%; left: 5%; }
+.cause-f4 { bottom: 5%; right: 10%; }
+
+.cause-list { list-style: none; }
+.cause-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(139,92,246,0.08);
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 16px; color: var(--text-muted); line-height: 1.6;
+}
+.cause-list li:last-child { border-bottom: none; }
+.cause-list .dot { flex-shrink: 0; width: 8px; height: 8px; background: var(--purple); border-radius: 50%; margin-top: 8px; }
+
+.cause-bottom {
+  margin-top: 32px; padding: 20px 24px;
+  background: rgba(139,92,246,0.06);
+  border-radius: 12px;
+  border-left: 3px solid var(--purple);
+}
+.cause-bottom p { font-size: 15px; color: var(--text); line-height: 1.7; }
+
+/* Method */
+.method-section { background: var(--bg); }
+.method-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+.method-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 32px;
+  transition: all 0.3s;
+}
+.method-card:hover { border-color: rgba(139,92,246,0.4); transform: translateY(-3px); }
+.method-card-icon {
+  width: 52px; height: 52px;
+  background: rgba(139,92,246,0.1);
+  border: 1px solid rgba(139,92,246,0.2);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.method-card-icon svg { width: 24px; height: 24px; stroke: var(--purple-light); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.method-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 10px; color: var(--text); }
+.method-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+/* Steps */
+.steps-section { background: var(--bg2); }
+.steps-timeline { max-width: 700px; margin: 48px auto 0; position: relative; }
+.steps-timeline::before {
+  content: '';
+  position: absolute; left: 28px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--purple), rgba(139,92,246,0.1));
+}
+.step-item { display: flex; gap: 24px; margin-bottom: 36px; position: relative; }
+.step-number {
+  flex-shrink: 0;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--purple);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700;
+  color: var(--purple-light);
+  z-index: 1;
+}
+.step-content {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px; flex: 1;
+  transition: all 0.3s;
+}
+.step-content:hover { border-color: rgba(139,92,246,0.35); }
+.step-content h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+.step-content p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+/* About */
+.about-section { background: var(--bg); }
+.about-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-top: 48px;
+}
+@media (max-width: 768px) { .about-content { grid-template-columns: 1fr; text-align: center; } }
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(236,72,153,0.1));
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.about-photo-placeholder {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(139,92,246,0.2);
+  border: 2px solid rgba(139,92,246,0.3);
+  display: flex; align-items: center; justify-content: center;
+}
+.about-photo-placeholder svg { width: 48px; height: 48px; stroke: var(--purple-light); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.about-photo-name { font-size: 16px; font-weight: 600; color: var(--text); }
+.about-photo-role { font-size: 13px; color: var(--text-muted); }
+
+.about-text h3 { font-size: 24px; font-weight: 700; margin-bottom: 20px; }
+.about-text p { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; }
+.about-text p strong { color: var(--text); }
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.about-stat {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+}
+.about-stat .num { font-size: 28px; font-weight: 800; color: var(--purple-light); }
+.about-stat .label { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+
+/* Testimonials */
+.testimonials-section { background: var(--bg2); }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+.testimonial-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  transition: all 0.3s;
+}
+.testimonial-card:hover { border-color: rgba(139,92,246,0.35); transform: translateY(-2px); }
+.testimonial-stars { display: flex; gap: 2px; margin-bottom: 16px; }
+.testimonial-stars svg { width: 16px; height: 16px; fill: #fbbf24; stroke: none; }
+.testimonial-text { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.testimonial-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(236,72,153,0.2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 700;
+  color: var(--purple-light);
+}
+.testimonial-name { font-size: 14px; font-weight: 600; color: var(--text); }
+.testimonial-detail { font-size: 12px; color: var(--text-dim); }
+
+/* Results */
+.results-section { background: var(--bg); }
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+.result-card {
+  background: linear-gradient(135deg, rgba(139,92,246,0.06), rgba(236,72,153,0.03));
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+  display: flex; align-items: flex-start; gap: 16px;
+  transition: all 0.3s;
+}
+.result-card:hover { border-color: rgba(139,92,246,0.35); transform: translateY(-2px); }
+.result-check {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.25);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+}
+.result-check svg { width: 18px; height: 18px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.result-card p { font-size: 15px; color: var(--text); line-height: 1.6; }
+
+/* For whom */
+.forwho-section { background: var(--bg2); }
+.forwho-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+@media (max-width: 768px) { .forwho-columns { grid-template-columns: 1fr; } }
+.forwho-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+}
+.forwho-box h3 { font-size: 18px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+.forwho-box h3 svg { width: 20px; height: 20px; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.forwho-box.yes h3 { color: var(--green); }
+.forwho-box.yes h3 svg { stroke: var(--green); }
+.forwho-box.no h3 { color: var(--red); }
+.forwho-box.no h3 svg { stroke: var(--red); }
+.forwho-box ul { list-style: none; }
+.forwho-box ul li { padding: 10px 0; font-size: 15px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 12px; line-height: 1.6; }
+.forwho-box ul li svg { flex-shrink: 0; width: 16px; height: 16px; margin-top: 4px; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.forwho-box.yes ul li svg { stroke: var(--green); }
+.forwho-box.no ul li svg { stroke: var(--red); }
+.forwho-note { margin-top: 16px; padding: 16px; background: rgba(139,92,246,0.05); border-radius: 12px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+/* Format */
+.format-section { background: var(--bg); }
+.format-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+@media (max-width: 768px) { .format-main { grid-template-columns: 1fr; } }
+
+.format-details {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+}
+.format-details h3 { font-size: 18px; font-weight: 700; margin-bottom: 24px; color: var(--text); }
+.format-detail-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(139,92,246,0.08);
+}
+.format-detail-item:last-child { border-bottom: none; }
+.format-detail-icon {
+  width: 40px; height: 40px;
+  flex-shrink: 0;
+  background: rgba(139,92,246,0.08);
+  border: 1px solid rgba(139,92,246,0.15);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+}
+.format-detail-icon svg { width: 18px; height: 18px; stroke: var(--purple-light); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.format-detail-text strong { color: var(--text); font-size: 15px; display: block; margin-bottom: 2px; }
+.format-detail-text span { color: var(--text-muted); font-size: 13px; }
+
+.format-includes {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+}
+.format-includes h3 { font-size: 18px; font-weight: 700; margin-bottom: 24px; color: var(--text); }
+.format-include-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 0;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+.format-include-item svg { width: 18px; height: 18px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+/* FAQ */
+.faq-section { background: var(--bg2); }
+.faq-list { max-width: 740px; margin: 48px auto 0; }
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: var(--bg);
+  transition: all 0.3s;
+}
+.faq-item:hover { border-color: rgba(139,92,246,0.3); }
+.faq-question {
+  padding: 22px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  user-select: none;
+}
+.faq-question svg {
+  width: 20px; height: 20px;
+  stroke: var(--purple-light);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.faq-item.open .faq-question svg { transform: rotate(180deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+.faq-item.open .faq-answer { max-height: 300px; }
+.faq-answer-inner {
+  padding: 0 28px 22px;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* CTA */
+.cta-section {
+  background: var(--bg);
+  text-align: center;
+  padding: 120px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-limited {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(236,72,153,0.08);
+  border: 1px solid rgba(236,72,153,0.2);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--pink);
+  margin-bottom: 32px;
+}
+.cta-limited svg { width: 14px; height: 14px; stroke: var(--pink); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.cta-title {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 800;
+  line-height: 1.2;
+  max-width: 650px;
+  margin: 0 auto 20px;
+}
+.cta-sub {
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+.cta-spots {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(34,197,94,0.08);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--green);
+  margin-bottom: 28px;
+}
+.cta-spots .pulse {
+  width: 8px; height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+
+footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 32px 24px;
+  text-align: center;
+}
+footer p { font-size: 13px; color: var(--text-dim); }
+
+@media (max-width: 640px) {
+  section { padding: 72px 0; }
+  .hero { padding: 100px 20px 60px; }
+  .steps-timeline::before { left: 20px; }
+  .step-number { width: 40px; height: 40px; font-size: 14px; }
+  .step-content { padding: 18px; }
+  .cause-visual { min-height: 250px; }
+  .cause-circle { width: 180px; height: 180px; }
+  .cause-floating { font-size: 11px; padding: 6px 12px; }
+  .about-stats { grid-template-columns: 1fr; }
+  .hero-trust { gap: 16px; }
+  .hero-trust-item { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="container">
+    <div class="fade-in">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        Система PF_R
+      </div>
+      <h1>Верните телу лёгкость и уберите хроническое напряжение</h1>
+      <p class="hero-sub">Через систему психо-эмоциональной разблокировки. Без силы воли, жёстких практик и постоянной борьбы с собой.</p>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span><strong>200+</strong> участников</span>
+        </div>
+        <div class="hero-trust-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span><strong>7 лет</strong> практики</span>
+        </div>
+        <div class="hero-trust-item">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span><strong>94%</strong> довольных</span>
+        </div>
+      </div>
+      <a href="https://t.me/+380687517964" target="_blank" class="btn-primary">
+        <span>Записаться на бесплатный разбор</span>
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <div class="btn-sub-text">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        15-минутный разбор в Telegram — бесплатно
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEMS ============ -->
+<section class="problem-section">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <div class="section-label">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="var(--pink)"/></svg>
+        Знакомо?
+      </div>
+      <h2 class="section-title">Вы узнаёте <span class="highlight">себя?</span></h2>
+      <p class="section-desc" style="margin:0 auto;">Вы можете этого даже не осознавать как проблему, но...</p>
+    </div>
+    <div class="problem-grid fade-in">
+      <div class="problem-card">
+        <div class="problem-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 15s1.5-2 4-2 4 2 4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+        <p>Тело <strong>постоянно напряжено</strong>, даже когда нет причин</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+        <p>Сложно <strong>полностью расслабиться</strong>, ощущение внутренней зажатости</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <p>Усталость <strong>не уходит</strong> даже после отдыха и выходных</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <p><strong>Тревожность</strong> становится привычным фоном дня</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><svg viewBox="0 0 24 24"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/></svg></div>
+        <p>Энергии хватает только <strong>«дотянуть день»</strong></p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+        <p>Ощущение, что <strong>живёте «на автомате»</strong></p>
+      </div>
+    </div>
+    <div class="problem-bottom fade-in">
+      <p>И постепенно это <strong>становится нормой</strong>. Вы перестаёте замечать, что живёте в состоянии постоянного напряжения.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT ============ -->
+<section class="important-section">
+  <div class="container">
+    <div class="important-box fade-in">
+      <div class="section-label">
+        <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Важный момент
+      </div>
+      <h2 class="section-title">Самое сложное в этом состоянии — <span class="highlight">к нему привыкают</span></h2>
+      <div class="important-quote">«Ну, наверное, я просто такой человек...»</div>
+      <p class="important-answer">
+        Но это <strong>не норма</strong>.<br><br>
+        Это состояние, в котором <strong>зафиксировалась ваша нервная система</strong>. И его можно изменить.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLASSIC ============ -->
+<section class="classic-section">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <div class="section-label">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        Стандартные подходы
+      </div>
+      <h2 class="section-title">Почему <span class="highlight">не помогает</span> классика</h2>
+    </div>
+    <div class="classic-grid fade-in">
+      <div class="classic-item">
+        <div class="classic-icon"><svg viewBox="0 0 24 24"><path d="M3 7v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7"/><path d="M21 7L12 2 3 7"/></svg></div>
+        <p>Отдых</p>
+      </div>
+      <div class="classic-item">
+        <div class="classic-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg></div>
+        <p>Массаж</p>
+      </div>
+      <div class="classic-item">
+        <div class="classic-icon"><svg viewBox="0 0 24 24"><polyline points="18 8 22 12 18 16"/><polyline points="6 8 2 12 6 16"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+        <p>Спорт</p>
+      </div>
+      <div class="classic-item">
+        <div class="classic-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+        <p>Смена режима</p>
+      </div>
+    </div>
+    <div class="classic-note fade-in">
+      <p>Эффект <strong>временный</strong>. Потому что это работа с симптомом, а <strong>не с причиной</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAUSE ============ -->
+<section class="cause-section">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <div class="section-label">
+        <svg viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+        Суть проблемы
+      </div>
+      <h2 class="section-title">В чём <span class="highlight">реальная причина</span></h2>
+      <p class="section-desc" style="margin:0 auto;">Напряжение в теле — это не про мышцы. Тело не «ломается». Оно фиксирует ваш опыт.</p>
+    </div>
+    <div class="cause-content fade-in">
+      <div class="cause-visual">
+        <div class="cause-circle"><span class="cause-circle-text">Нервная<br>система</span></div>
+        <div class="cause-floating cause-f1">подавленные эмоции</div>
+        <div class="cause-floating cause-f2">хронический стресс</div>
+        <div class="cause-floating cause-f3">перегруз НС</div>
+        <div class="cause-floating cause-f4">непрожитый опыт</div>
+      </div>
+      <div>
+        <ul class="cause-list">
+          <li><span class="dot"></span> Подавленные эмоции, которые тело удерживает годами</li>
+          <li><span class="dot"></span> Хронический стресс, ставший привычным фоном</li>
+          <li><span class="dot"></span> Перегруз нервной системы без возможности восстановления</li>
+          <li><span class="dot"></span> Внутренние состояния, которые не были прожиты до конца</li>
+        </ul>
+        <div class="cause-bottom">
+          <p>Тело не «ломается». Оно <strong>фиксирует ваш опыт</strong> — и удерживает его, пока вы не отпустите.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mid CTA -->
+    <div class="mid-cta fade-in">
+      <p>Узнали себя? <strong>Это можно изменить.</strong></p>
+      <a href="https://t.me/+380687517964" target="_blank" class="btn-primary">
+        <span>Написать Ирине в Telegram</span>
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <div class="btn-sub-text">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Бесплатный разбор — 15 минут
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about-section">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <div class="section-label">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Об авторе
+      </div>
+      <h2 class="section-title">Ирина <span class="highlight">Ефимчук</span></h2>
+    </div>
+    <div class="about-content fade-in">
+      <div class="about-photo">
+        <div class="about-photo-placeholder">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="about-photo-name">Ирина Ефимчук</div>
+        <div class="about-photo-role">Специалист по методу PF_R</div>
+      </div>
+      <div class="about-text">
+        <h3>Почему я занимаюсь этим</h3>
+        <p>Я пришла к работе с телом через собственный опыт. Несколько лет жила в состоянии хронического напряжения — перепробовала массажи, спорт, медитации. Ничего не давало устойчивого результата, пока я не поняла: <strong>проблема не в теле, а в том, что тело хранит.</strong></p>
+        <p>Сегодня я помогаю людям вернуть контакт с телом, снять хроническое напряжение и выйти из режима «выживания». Моя задача — не просто дать временное облегчение, а <strong>изменить базовое состояние</strong>, в котором вы живёте каждый день.</p>
+        <p>Работаю индивидуально, потому что каждый случай уникален. Мне важен ваш результат, а не количество участников.</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="num">7+</div>
+            <div class="label">лет практики</div>
+          </div>
+          <div class="about-stat">
+            <div class="num">200+</div>
+            <div class="label">участников</div>
+          </div>
+          <div class="about-stat">
+            <div class="num">94%</div>
+            <div class="label">довольных</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHOD ============ -->
+<section class="method-section" style="background:var(--bg2);">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <div class="section-label">
+        <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Метод
+      </div>
+      <h2 class="section-title">Система <span class="highlight">PF_R</span></h2>
+      <p class="section-desc" style="margin:0 auto;">Метод PF_R — система психо-эмоциональной разблокировки тела, которая работает с причиной состояния. Мы не «расслабляем мышцы».</p>
+    </div>
+    <div class="method-features fade-in">
+      <div class="method-card">
+        <div class="method-card-icon"><svg viewBox="0 0 24 24"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.78.77L12 20.64l7.64-7.64.78-.77a5.4 5.4 0 0 0 0-7.65z"/></svg></div>
+        <h3>Возвращаем чувствительность</h3>
+        <p>Тело снова начинает чувствовать и откликаться на сигналы</p>
+      </div>
+      <div class="method-card">
+        <div class="method-card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg></div>
+        <h3>Снимаем хронические зажимы</h3>
+        <p>Работа с глубоким накопленным напряжением, а не поверхностное расслабление</p>
+      </div>
+      <div class="method-card">
+        <div class="method-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Восстанавливаем контакт с телом</h3>
+        <p>Вы перестаёте быть «в голове» и начинаете слышать себя</p>
+      </div>
+      <div class="method-card">
+        <div class="method-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>Работа с нервной системой</h3>
+        <p>Перевод нервной системы из режима выживания в режим восстановления</p>
+      </div>
+      <div class="method-card">
+        <div class="method-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+        <h3>Меняем внутреннее состояние</h3>
+        <p>Формируем новое базовое состояние — лёгкость, спокойствие, энергия</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEPS ============ -->
+<section class="steps-section" style="background:var(--bg);">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <div class="section-label">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Программа
+      </div>
+      <h2 class="section-title">Как проходит <span class="highlight">путь</span></h2>
+    </div>
+    <div class="steps-timeline fade-in">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Диагностика состояния тела</h3>
+          <p>Понимание, где и почему вы живёте в напряжении. Точная карта вашего состояния.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Возврат чувствительности</h3>
+          <p>Вы снова начинаете ощущать тело — его сигналы, потребности, границы.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Снятие зажимов</h3>
+          <p>Работа с накопленным напряжением на глубоком уровне.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Работа с эмоциональными блоками</h3>
+          <p>Освобождение подавленных состояний, которые тело удерживало годами.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Перестройка нервной системы</h3>
+          <p>Формирование нового базового состояния — спокойствия и ресурса.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <h3>Закрепление результата</h3>
+          <p>Чтобы состояние не откатывалось назад. Устойчивые изменения.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section class="results-section" style="background:var(--bg2);">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <div class="section-label">
+        <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        Результаты
+      </div>
+      <h2 class="section-title">После <span class="highlight">программы</span></h2>
+    </div>
+    <div class="results-grid fade-in">
+      <div class="result-card">
+        <div class="result-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p>Тело становится <strong>заметно легче</strong></p>
+      </div>
+      <div class="result-card">
+        <div class="result-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p>Уходит <strong>фоновое напряжение</strong></p>
+      </div>
+      <div class="result-card">
+        <div class="result-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p>Появляется <strong>стабильная энергия</strong></p>
+      </div>
+      <div class="result-card">
+        <div class="result-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p>Улучшается <strong>контакт с собой</strong></p>
+      </div>
+      <div class="result-card">
+        <div class="result-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p>Снижается <strong>тревожность</strong></p>
+      </div>
+      <div class="result-card">
+        <div class="result-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p>Появляется ощущение <strong>«живого тела»</strong></p>
+      </div>
+    </div>
+
+    <!-- Mid CTA -->
+    <div class="mid-cta fade-in">
+      <p>Хотите такие же результаты? <strong>Начните с бесплатного разбора.</strong></p>
+      <a href="https://t.me/+380687517964" target="_blank" class="btn-primary">
+        <span>Записаться на разбор</span>
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials-section" style="background:var(--bg);">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <div class="section-label">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Отзывы
+      </div>
+      <h2 class="section-title">Что говорят <span class="highlight">участники</span></h2>
+    </div>
+    <div class="testimonials-grid fade-in">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        </div>
+        <p class="testimonial-text">«Я не верила, что напряжение в шее и плечах связано с эмоциями. После 3 недель работы с Ириной тело стало другим — я впервые за годы почувствовала лёгкость. Даже муж заметил, что я изменилась.»</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">А</div>
+          <div>
+            <div class="testimonial-name">Анна К.</div>
+            <div class="testimonial-detail">36 лет, бухгалтер · прошла программу полностью</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        </div>
+        <p class="testimonial-text">«Годами жил в состоянии внутреннего давления. Думал, это просто характер. Ирина помогла увидеть, что это зафиксированный стресс. Сейчас чувствую спокойствие, которое идёт изнутри, а не от таблеток.»</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">Д</div>
+          <div>
+            <div class="testimonial-name">Дмитрий С.</div>
+            <div class="testimonial-detail">42 года, предприниматель · 8 недель в программе</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        </div>
+        <p class="testimonial-text">«Тревожность была моим фоном 24/7. После программы я впервые за долгое время стала засыпать спокойно. Тело перестало быть "панцирем". Благодарна Ирине за бережный и глубокий подход.»</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">М</div>
+          <div>
+            <div class="testimonial-name">Марина В.</div>
+            <div class="testimonial-detail">29 лет, дизайнер · прошла программу полностью</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOR WHO ============ -->
+<section class="forwho-section">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <div class="section-label">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Для кого
+      </div>
+      <h2 class="section-title">Кому <span class="highlight">подходит</span></h2>
+    </div>
+    <div class="forwho-columns fade-in">
+      <div class="forwho-box yes">
+        <h3>
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Подходит
+        </h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Вы живёте в постоянном напряжении</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Устали от внутреннего давления</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Чувствуете, что «держите себя»</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Хотите вернуть лёгкость и энергию</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Уже пробовали разные методы, но эффект временный</li>
+        </ul>
+      </div>
+      <div class="forwho-box no">
+        <h3>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          Может не подойти
+        </h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Ожидаете мгновенный результат без участия</li>
+          <li><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Пока не готовы работать с телесными ощущениями</li>
+          <li><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Ищете только теоретическую информацию</li>
+        </ul>
+        <div class="forwho-note">Программа требует вовлечения — это не пассивное обучение, а совместная работа с вашим состоянием. Если вы к этому готовы, результат будет.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMAT ============ -->
+<section class="format-section">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <div class="section-label">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Формат
+      </div>
+      <h2 class="section-title">Как <span class="highlight">устроена</span> программа</h2>
+    </div>
+    <div class="format-main fade-in">
+      <div class="format-details">
+        <h3>Структура</h3>
+        <div class="format-detail-item">
+          <div class="format-detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="format-detail-text">
+            <strong>8 недель</strong>
+            <span>Длительность программы</span>
+          </div>
+        </div>
+        <div class="format-detail-item">
+          <div class="format-detail-icon"><svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+          <div class="format-detail-text">
+            <strong>2 сессии в неделю</strong>
+            <span>Индивидуальные онлайн-встречи</span>
+          </div>
+        </div>
+        <div class="format-detail-item">
+          <div class="format-detail-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="format-detail-text">
+            <strong>Поддержка в Telegram</strong>
+            <span>Связь с Ириной между сессиями</span>
+          </div>
+        </div>
+        <div class="format-detail-item">
+          <div class="format-detail-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="format-detail-text">
+            <strong>Полностью онлайн</strong>
+            <span>Из любой точки мира</span>
+          </div>
+        </div>
+      </div>
+      <div class="format-includes">
+        <h3>Что входит</h3>
+        <div class="format-include-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Пошаговая система работы с телом
+        </div>
+        <div class="format-include-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Индивидуальные практики под ваше состояние
+        </div>
+        <div class="format-include-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Диагностика и разбор состояния
+        </div>
+        <div class="format-include-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Работа с эмоциональными блоками
+        </div>
+        <div class="format-include-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Сопровождение на каждом этапе
+        </div>
+        <div class="format-include-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Техники для самостоятельной практики
+        </div>
+        <div class="format-include-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Закрепляющий модуль после завершения
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <div class="section-label">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Вопросы
+      </div>
+      <h2 class="section-title">Частые <span class="highlight">вопросы</span></h2>
+    </div>
+    <div class="faq-list fade-in">
+      <div class="faq-item">
+        <div class="faq-question">
+          Это не эзотерика?
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Нет. Метод PF_R основан на понимании работы нервной системы, телесно-ориентированном подходе и принципах психосоматики. Это практическая работа с телом и состоянием — без мистики, ритуалов или «энергий». Всё, что мы делаем, имеет объяснимый механизм.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          Сколько длится программа?
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Основная программа рассчитана на 8 недель. Это оптимальный срок, чтобы пройти все этапы — от диагностики до закрепления результата. Первые изменения большинство участников ощущают уже на 2–3 неделе.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          Нужно ли приходить лично?
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Нет, вся работа проходит онлайн. Вам нужен только стабильный интернет и тихое место, где вас не будут отвлекать во время сессии. Участники работают из разных стран.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          Что если мне не подойдёт?
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Именно для этого существует бесплатный разбор перед началом. На нём я честно скажу, подходит ли вам программа и смогу ли я помочь в вашей ситуации. Мне важно работать с теми, кому действительно нужен этот метод.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          У меня уже есть психолог / терапевт. Можно совмещать?
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Да, программа PF_R дополняет психологическую работу, а не заменяет её. Мы работаем с телесным уровнем — то, что часто остаётся «за кадром» в классической терапии. Многие участники совмещают оба подхода и отмечают, что прогресс ускоряется.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          Сколько стоит программа?
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Стоимость обсуждается на бесплатном разборе, потому что объём работы может различаться. Напишите мне в Telegram — я расскажу подробнее о вариантах и подберу формат под вашу ситуацию.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <div class="fade-in">
+      <div class="cta-spots">
+        <span class="pulse"></span>
+        В мае осталось 4 места
+      </div>
+      <h2 class="cta-title">Готовы выйти из состояния постоянного напряжения?</h2>
+      <p class="cta-sub">Напишите мне в Telegram — я посмотрю вашу ситуацию и скажу, подходит ли вам программа. Это бесплатно и ни к чему не обязывает.</p>
+      <a href="https://t.me/+380687517964" target="_blank" class="btn-primary">
+        <span>Написать Ирине в Telegram</span>
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <div class="btn-sub-text">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Бесплатный разбор — 15 минут в Telegram
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Ирина Ефимчук · Система PF_R</p>
+</footer>
+
+<script>
+// Fade-in observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const wasOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    // Toggle current
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+</script>
+
+</body>
+</html>
